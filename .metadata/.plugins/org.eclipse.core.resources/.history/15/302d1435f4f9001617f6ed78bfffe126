@@ -1,0 +1,140 @@
+package Snake;
+
+/**
+ * java classes:
+ * swing voor GUI
+ * awt voor figuren
+ * util voor random nummers
+ */
+import javax.swing.*;
+import java.awt.*;
+import java.util.*;
+
+public class Game {
+	
+	//
+	private LinkedList<int[]> slang;private LinkedList<int[]> eten;
+	//Array variabelen
+	private int[] nextCoordinaatHead;private int[] frame;
+	//int variabelen
+	private int Direction;private int score;private int DirectionChange;private int food;private int slangLengte;private int foodSaturation;
+	//boolean variabelen
+	private boolean grow;
+	
+	public Game(){
+		frame = new int[]{100,100};
+		slang.add(new int[]{50,50});
+		slang.add(new int[]{50,49});
+		slangLengte = 2;
+		Direction = 3;
+		nextCoordinaatHead = new int[2];
+		grow = false;
+		foodSaturation = 800;
+		food = (frame[0]*frame[1])/foodSaturation;
+	}
+	/*
+	 * This is the method that determans what to do if a move is made.
+	 * Direction:
+	 * 1 = up
+	 * 2 = down
+	 * 3 = right
+	 * 4 = left
+	 */
+	private void MoveAction(int DirectionChanges){
+		int CoordHeadX = slang.getFirst()[0];
+		int CoordHeadY = slang.getFirst()[1];
+		if(DirectionChanges == 1){
+			CoordHeadY +=1;
+			nextCoordinaatHead = new int[]{CoordHeadX,CoordHeadY};
+			this.Colison();
+		}
+		if(DirectionChanges == 2){
+			CoordHeadY -=1;
+			nextCoordinaatHead = new int[]{CoordHeadX,CoordHeadY};
+			this.Colison();
+		}
+		if(DirectionChanges == 3){
+			CoordHeadX +=1;
+			nextCoordinaatHead = new int[]{CoordHeadX,CoordHeadY};
+			this.Colison();
+		}
+		if(DirectionChanges == 4){
+			CoordHeadX-=1;
+			nextCoordinaatHead = new int[]{CoordHeadX,CoordHeadY};
+			this.Colison();
+		}
+		this.Colison();
+		score = score +1;
+	}
+	/*
+	 * Collision method:
+	 * determans what hapens
+	 */
+	private void Colison(){
+		//@random variable
+		grow = false;
+		//Checking if we are going back to the prevouis tile
+		if(slang.get(1) == nextCoordinaatHead){
+			DirectionChange = DirectionChange +1;
+			this.MoveAction(DirectionChange);
+		}
+		//Checking if we colide with our own boddy
+		int ListCycle = 2;
+		while(ListCycle<= slang.size()){
+			if(slang.getFirst() == slang.get(ListCycle)){
+				this.gameOver();
+			}
+			ListCycle = ListCycle+1;
+		}
+		//Checking if we collide with the wall
+		if(nextCoordinaatHead[0] == 0){
+			this.gameOver();
+		}
+		if(nextCoordinaatHead[0] == 100){
+			this.gameOver();
+		}
+		if(nextCoordinaatHead[1] == 0){
+			this.gameOver();
+		}
+		if(nextCoordinaatHead[1] == 100){
+			this.gameOver();
+		}
+		ListCycle = 0;
+		//Checking if we can eat food
+		while(ListCycle <= eten.size()){
+			if(nextCoordinaatHead == eten.get(ListCycle)){
+				grow = true;
+			}
+		}
+		if(grow = false){
+			slang.removeLast();
+		}else{
+			slangLengte =+1;
+		}
+		slang.addFirst(nextCoordinaatHead);
+	}
+	
+	/*This Code is writen to generate food randomly
+	 */
+	private void foodGeneration(){
+		int LoopCounter = 0;
+		while(LoopCounter<=food){
+			
+		}
+		food = ((frame[0]*frame[1])-slangLengte)/foodSaturation;
+	}
+	
+	private void gameOver(){
+		//end the game here!!!!
+		
+	}
+	
+	/**public class Timer{
+		private int TimeDelay;
+		
+		public Timer(){
+			TimeDelay = 100;
+		}
+	}
+	*/
+}

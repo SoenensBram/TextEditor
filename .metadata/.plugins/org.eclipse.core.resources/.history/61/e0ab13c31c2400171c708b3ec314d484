@@ -1,0 +1,70 @@
+package Editor;
+
+/**
+ * Implements a stack on a Linked List
+ *
+ * @param <T> type of the elements on the stack
+ */
+public class StackLL<T> implements Stack<T> {
+    private LinkedList<T> ll;
+    private int maxSize;
+
+    /**
+     * Creates an emty stack
+     */
+    public StackLL() {
+        ll = new LinkedList<T>();
+        this.maxSize = 0;
+    }
+    
+    public StackLL(int maxSize) {
+    	ll = new LinkedList<T>();
+        this.maxSize = maxSize;
+    }
+    
+    @Override
+    public boolean isEmpty() {
+        return ll.isEmty();
+    }
+    
+    /**
+     * limits the size of the stack
+     */
+    public void MaxSize(){
+    	if(maxSize < 2){
+    		if(maxSize < this.size()){
+    			this.removeLast();
+    		}
+    	}
+    }
+
+    @Override
+    public int size() {
+        return ll.size();
+    }
+
+    @Override
+    public void push(T element) {
+        ll.prepend(element);
+        MaxSize();
+    }
+
+    @Override
+    public T pop() {
+        if (size() == 0) throw new StackEmptyException();
+        T element = ll.first();
+        ll = ll.tail();
+        return element;
+    }
+
+    @Override
+    public T top() {
+        return ll.first();
+    }
+
+	@Override
+	public void removeLast() {
+		ll.removeLast();
+		
+	}
+}

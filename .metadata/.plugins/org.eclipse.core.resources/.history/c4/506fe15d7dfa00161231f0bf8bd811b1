@@ -1,0 +1,109 @@
+package Algortimen;
+/**
+ * 
+ * @author Bram Soenens
+ *
+ *Singly linked list
+ *
+ * @param <T> type of paramater
+ */
+public class LinkedList<T> {
+	
+	private Node head;
+	private int size;
+	
+	/**
+	 * Constructor of an emty list
+	 */
+	public LinkedList(){
+		head = null;
+		size = 0;
+	}
+	
+	/**
+	 * Constructor for a likned list with one element
+	 * 
+	 * @param element
+	 */
+	public LinkedList(T element){
+		head = new Node(element);
+		size = 1;
+	}
+	
+	private LinkedList(Node node){
+		head = node;
+		size = this.count();
+	}
+	
+	/**
+	 * Prepends the element to the linked list
+	 * 
+	 * @param element
+	 */
+	public void prepend(T element){
+		Node newNode = new Node(element);
+		head = newNode;
+		size ++;
+	}
+	
+	/**
+	 * 
+	 * @return return the head of the list
+	 */
+	public T first(){
+		return head.get();
+	}
+	
+	public int size(){
+		return size;
+	}
+
+	/**
+	 * 
+	 * @return true if emty, false if the linked list contains elements
+	 */
+	public boolean isEmty(){
+		return size == 0;
+	}
+
+	/**
+	 * 
+	 * @return the linked list whithout the head element
+	 */
+	public LinkedList<T> tail(){
+		return new LinkedList<T>(head.next());
+	}
+	
+	public int count(){
+		if(head ==null){return 0}
+		int total = 1;
+		while(head.next()!= null){
+			total++;
+		}
+		return total;
+	}
+	
+	private class Node{
+		private T element;
+		private Node next;
+		
+		public Node(T element){
+			this(element, null);
+		}
+		
+		public Node(T element, Node next){
+			this.element = element;
+			this.next = next;
+		}
+		
+		public T get(){
+			return element;
+		}
+		
+		public Node next(){
+			return next;
+		}
+		
+	}
+
+}

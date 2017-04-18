@@ -1,0 +1,53 @@
+package Algortimen;
+/**
+ * 
+ * @author Bram Soenens
+ *
+ *Singly linked list
+ *
+ * @param <T> type of paramater
+ */
+public class LinkedList<T> {
+	
+	private Node head;
+	
+	/**
+	 * Constructor for a likned list with one element
+	 * 
+	 * @param element
+	 */
+	public LinkedList(T element){
+		head = new Node(element);
+	}
+	
+	public void append(T element){
+		Node newNode = new Node(element);
+		
+	}
+	
+	/**
+	 * 
+	 * @return return the head of the list
+	 */
+	public T first(){
+		return head.get();
+	}
+	
+	private class Node{
+		private T element;
+		private Node next;
+		
+		public Node(T element){
+			head = new Node(element);
+		}
+		
+		public Node(T element, Node next){
+			
+		}
+		
+		public T get(){
+			return element;
+		}
+	}
+
+}

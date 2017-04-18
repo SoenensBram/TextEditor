@@ -1,0 +1,106 @@
+package Snake;
+
+/**
+ * java classes:
+ * swing voor GUI
+ * awt voor figuren
+ * util voor random nummers
+ */
+import javax.swing.*;
+import java.awt.*;
+import java.util.*;
+
+public class Game {
+	
+	private int[] Coordinaten;
+	private LinkedList<Coordinaten> slang;
+	private LinkedList<Coordinaten> eten;
+	private int Direction;
+	private int score;
+	private int[] nextCoordinaatHead;
+	private int DirectionChange;
+	
+	public Game(){
+		Coordinaten = new int[2];
+		slang.add(new int[]{50,50});
+		slang.add(new int[]{50,49});
+		Direction = 3;
+		nextCoordinaatHead = new int[2];
+	}
+	/*
+	 * This is the method that determans what to do if a move is made.
+	 * Direction:
+	 * 1 = up
+	 * 2 = down
+	 * 3 = right
+	 * 4 = left
+	 */
+	public void MoveAction(int DirectionChanges){
+		int CoordHeadX = slang.getFirst().get(0);
+		int CoordHeadY = slang.getFirst().get(1);
+		if(DirectionChanges = 1){
+			CoordHeadY +=1;
+			nextCoordinaatHead = new int[]{CoordHeadX,CoordHeadY};
+		}
+		if(DirectionChanges = 2){
+			CoordHeadY -=1;
+			nextCoordinaatHead = new int[]{CoordHeadX,CoordHeadY};
+		}
+		if(DirectionChanges = 3){
+			CoordHeadX +=1;
+			nextCoordinaatHead = new int[]{CoordHeadX,CoordHeadY};
+		}
+		if(DirectionChanges = 4){
+			CoordHeadX-=1;
+			nextCoordinaatHead = new int[]{CoordHeadX,CoordHeadY};
+		}
+		this.Colison();
+		score = score +1;
+	}
+	/*
+	 * Collision method:
+	 * determans what hapens
+	 */
+	public void Colison(){
+		if(slang.get(1)=nextCoordinaatHead){
+			DirectionChange = DirectionChange +1;
+			this.MoveAction(DirectionChange);
+		}
+		int ListCycle = 2;
+		while(ListCycle<= slang.size()){
+			if(slang.getFirst()=slang.get(ListCycle)){
+				this.gameOver();
+			}
+			ListCycle = ListCycle+1;
+		}
+		if(nextCoordinaatHead.get(0)=0 or nextCoordinaatHead.get(0) = 100){
+			this.gameOver();
+		}
+		if(nextCoordinaatHead.get(1)=0 or nextCoordinaatHead.get(1) = 100){
+			this.gameOver();
+		}
+		ListCycle = 0;
+		boolean grow = false;
+		while(ListCycle <= eten.size()){
+			if(nextCoordinaatHead = eten.get(ListCycle)){
+				grow = true;
+			}
+		}
+		if(grow){}else{
+			
+		}
+		slang.addFirst(nextCoordinaatHead);
+	}
+	
+	
+	
+	
+	/**public class Timer{
+		private int TimeDelay;
+		
+		public Timer(){
+			TimeDelay = 100;
+		}
+	}
+	*/
+}

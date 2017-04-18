@@ -1,0 +1,5 @@
+INDEX VERSION 1.129+C:\Users\brams_gc294dd\Documents\School\algoritmes\Eclipse map\.metadata\.plugins\org.eclipse.jdt.core
+3535805605.index
+2617301672.index
+721870495.index
+2901873103.index

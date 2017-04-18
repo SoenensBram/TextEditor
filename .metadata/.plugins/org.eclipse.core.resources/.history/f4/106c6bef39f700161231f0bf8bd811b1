@@ -1,0 +1,7 @@
+package TestIneterface;
+
+import javax.swing.*;
+
+public class Face extends Jframe {
+
+}

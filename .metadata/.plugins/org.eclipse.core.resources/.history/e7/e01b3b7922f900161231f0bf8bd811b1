@@ -1,0 +1,88 @@
+package Snake;
+
+/**
+ * java classes:
+ * swing voor GUI
+ * awt voor figuren
+ * util voor random nummers
+ */
+import javax.swing.*;
+import java.awt.*;
+import java.util.*;
+
+public class Game {
+	
+	private int[] Coordinaten;
+	private LinkedList<Coordinaten> slang;
+	private LinkedList<Coordinaten> eten;
+	private int Direction;
+	private int score;
+	private int[] nextCoordinaatHead;
+	private int KeyDirection;
+	
+	public Game(){
+		Coordinaten = new int[2];
+		slang.add(new int[]{50,50});
+		slang.add(new int[]{50,49});
+		Direction = 3;
+		nextCoordinaatHead = new int[2];
+	}
+	/*
+	 * This is the method that determans what to do if a move is made.
+	 * Direction:
+	 * 0 = same direction
+	 * 1 = up
+	 * 2 = down
+	 * 3 = right
+	 * 4 = left
+	 */
+	public int MoveAction(int DirectionChange){
+		if(DirectionChange = 0){
+			
+		}
+		if(DirectionChange = 1){
+			
+		}
+		if(DirectionChange = 2){
+			
+		}
+		if(DirectionChange = 3){
+			
+		}
+		if(DirectionChange = 4){
+			
+		}
+		score = score +1;
+		return null;
+	}
+	/*
+	 * Collision method:
+	 * -1 = collision with boddy or wall
+	 * 0 = Direction was corrected
+	 */
+	public Colison(){
+		int ListCycle = 2;
+		while(ListCycle<= slang.size()){
+			if(slang.getFirst()=slang.get(ListCycle)){
+				return -1;
+			}
+			ListCycle = ListCycle+1;
+		}
+		if(slang.get(1)=nextCoordinaatHead){
+			DirectionChange = DirectionChange +1;
+		}
+		return null;
+	}
+	
+	
+	
+	
+	/**public class Timer{
+		private int TimeDelay;
+		
+		public Timer(){
+			TimeDelay = 100;
+		}
+	}
+	*/
+}
