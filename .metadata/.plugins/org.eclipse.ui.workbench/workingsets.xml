@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workingSetManager>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1492529080819_1" label="LinkedList" name="LinkedList"/>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1487280213571_0" label="Window Working Set" name="Aggregate for window 1487280213570"/>
+<mruList name="LinkedList"/>
 </workingSetManager>

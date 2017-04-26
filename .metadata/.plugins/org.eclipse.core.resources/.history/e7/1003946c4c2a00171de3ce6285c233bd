@@ -1,0 +1,22 @@
+package Editor;
+
+import static org.junit.Assert.*;
+
+import org.junit.Before;
+import org.junit.Test;
+
+public class TestEditor {
+
+	private Texted editor;
+	
+	@Before
+	public void setUp() throws Exception {
+		editor = new Texted();
+	}
+
+	@Test
+	public void test() {
+		fail("Not yet implemented");
+	}
+
+}
