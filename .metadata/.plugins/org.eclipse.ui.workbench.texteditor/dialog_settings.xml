@@ -2,18 +2,30 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="tail" key="selection"/>
+		<item value="textArea.getText().subSequence(ev.getOffset(), ev.getOffset()+ev.getLength()).toString()" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="textArea.getText().subSequence(ev.getOffset(), ev.getOffset()+ev.getLength())"/>
+			<item value="ev.getDocument()"/>
+			<item value="ev.getChange()"/>
+			<item value="ev.getChange(textArea)"/>
+			<item value="ev.getChange(this)"/>
+			<item value="ev.toString()"/>
+			<item value="main"/>
 			<item value="tail"/>
-			<item value="timer"/>
-			<item value="remove"/>
-			<item value="First"/>
 		</list>
 		<list key="replacehistory">
+			<item value="textArea.getText().subSequence(ev.getOffset(), ev.getOffset()+ev.getLength()).toString()"/>
+			<item value="textArea.getText().subSequence(ev.getOffset(), ev.getOffset()+ev.getLength())"/>
+			<item value="textAr"/>
+			<item value="textArea.get"/>
+			<item value="ev.getDocument()"/>
+			<item value="ev.getChange()"/>
+			<item value="ev.getChange(textArea)"/>
+			<item value="ev.getChange(this)"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
